@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/mHeadImg"
+        android:layout_width="match_parent"
+        android:layout_height="600px"
+        android:layout_marginTop="-200px"
+        android:contentDescription="@null"
+        android:scaleType="fitXY"
+        android:src="@drawable/scrollview_header" />
+
+    <com.standardproject.widget.PullScrollView
+        android:id="@+id/mScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:headerHeight="600px"
+        app:headerVisibleHeight="200px"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#00000000"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/scroll_view_head"
+                android:layout_width="match_parent"
+                android:layout_height="224px"
+                android:layout_marginTop="200px"
+                android:background="#00000000"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="170px"
+                    android:layout_marginTop="52px"
+                    android:background="@drawable/card_avatar_bar">
+
+
+
+                    <TextView
+                        android:id="@+id/user_post"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="206px"
+                        android:layout_marginTop="8px"
+                        android:singleLine="true"
+                        android:ellipsize="end"
+                        android:text="会员8级"
+                        android:textSize="24px"
+                        android:textColor="#A1A1A1" />
+
+                    <TextView
+                        android:id="@+id/user_book"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="206px"
+                        android:layout_below="@+id/user_post"
+                        android:layout_marginTop="8px"
+                        android:singleLine="true"
+                        android:ellipsize="end"
+                        android:text="这个人很懒， 什么都没有留下"
+                        android:textSize="24px"
+                        android:textColor="#A1A1A1" />
+                </RelativeLayout>
+
+                <ImageView
+                    android:id="@+id/user_avatar"
+                    android:layout_width="116px"
+                    android:layout_height="116px"
+                    android:padding="1px"
+                    android:background="@drawable/ic_logo"
+                    android:layout_marginLeft="40px"
+                    android:contentDescription="@null"
+                    />
+
+                <TextView
+                    android:id="@+id/user_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/user_avatar"
+                    android:layout_marginLeft="26px"
+                    android:singleLine="true"
+                    android:ellipsize="end"
+                    android:shadowColor="@android:color/black"
+                    android:shadowDx="3.0"
+                    android:shadowDy="3.0"
+                    android:shadowRadius="5.0"
+                    android:text="西北老狼"
+                    android:textSize="40px"
+                    android:textColor="@android:color/white" />
+
+               <!-- <FrameLayout
+                    android:id="@+id/user_divider_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/user_avatar"
+                    android:layout_marginTop="8px"
+                    android:layout_marginLeft="40px"
+                    android:layout_marginRight="40px">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:layout_marginTop="10px"
+                        android:contentDescription="@null"
+                        android:background="#DFDFDF" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="58px"
+                        android:contentDescription="@null"
+                        android:src="@drawable/arrow_up" />
+                </FrameLayout>-->
+                <FrameLayout
+                    android:id="@+id/user_divider_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/user_avatar"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginLeft="21dp"
+                    android:layout_marginRight="21dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="2px"
+                        android:layout_marginTop="6px"
+                        android:contentDescription="@null"
+                        android:background="#DFDFDF" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="29dp"
+                        android:contentDescription="@null"
+                        android:src="@drawable/arrow_up" />
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/user_des"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/user_divider_layout"
+                    android:layout_marginLeft="40px"
+                    android:layout_marginRight="40px"
+                    android:layout_marginTop="16px"
+                    android:singleLine="true"
+                    android:ellipsize="end"
+                    android:text="简介："
+                    android:textSize="24px"
+                    android:textColor="#B1B1B1" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-2px"
+                android:orientation="vertical"
+                android:paddingBottom="16px"
+                android:background="#F7F4F0">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24px"
+                    android:layout_marginTop="24px"
+                    android:layout_marginBottom="24px"
+                    android:singleLine="true"
+                    android:ellipsize="end"
+                    android:text="user_recommend_tip"
+                    android:textSize="24px"
+                    android:textColor="#A1A1A1" />
+
+                <RelativeLayout
+                    android:id="@+id/rl_wallet"
+                    android:layout_width="match_parent"
+                    android:layout_height="100px"
+                    android:background="@drawable/selector_press"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="24px"
+                        android:text="我的钱包:"
+                        android:textColor="@color/text_color_black"
+                        android:textSize="28px" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="30px"
+                        android:layout_marginRight="24px"
+                        android:drawablePadding="20px"
+                        android:drawableRight="@drawable/ic_expand_more_black"
+                        android:gravity="center"
+                        android:text=""
+                        android:textColor="@color/text_color_black"
+                        android:textSize="28px" />
+
+                </RelativeLayout>
+
+                <View style="@style/view_line"></View>
+
+                <RelativeLayout
+                    android:id="@+id/rl_order"
+                    android:layout_width="match_parent"
+                    android:layout_height="100px"
+                    android:background="@drawable/selector_press"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="24px"
+                        android:text="我的订单:"
+                        android:textColor="@color/text_color_black"
+                        android:textSize="28px" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="30px"
+                        android:layout_marginRight="24px"
+                        android:drawablePadding="20px"
+                        android:drawableRight="@drawable/ic_expand_more_black"
+                        android:gravity="center"
+                        android:text="12"
+                        android:textColor="@color/text_color_black"
+                        android:textSize="28px" />
+
+                </RelativeLayout>
+
+                <View style="@style/view_line"></View>
+
+                <RelativeLayout
+                    android:id="@+id/rl_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="100px"
+                    android:background="@drawable/selector_press"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="24px"
+                        android:text="我的资料:"
+                        android:textColor="@color/text_color_black"
+                        android:textSize="28px" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="30px"
+                        android:layout_marginRight="24px"
+                        android:drawablePadding="20px"
+                        android:drawableRight="@drawable/ic_expand_more_black"
+                        android:gravity="center"
+                        android:text=""
+                        android:textColor="@color/text_color_black"
+                        android:textSize="28px" />
+
+                </RelativeLayout>
+
+                <View style="@style/view_line"></View>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="120px"
+                    android:layout_marginTop="30px"
+                    android:background="@color/white"
+                    android:visibility="gone"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tv_input1"
+                        android:background="@drawable/collect"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="24px"
+                        />
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/usernameWrapper"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10px"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/tv_input1"
+                        >
+
+                        <EditText
+                            android:id="@+id/et_username"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="请输入手机号码"
+                            android:inputType="textEmailAddress"
+                            android:textColor="@color/text_color_black"
+                            android:textColorHint="@color/text_color_black"
+                            android:textSize="20dp"
+                            android:lines="1"
+                            android:ellipsize="end"
+                            android:drawablePadding="20px"
+                            android:background="@null"
+                            />
+
+                    </android.support.design.widget.TextInputLayout>
+
+                </RelativeLayout>
+
+
+
+            </LinearLayout>
+        </LinearLayout>
+    </com.standardproject.widget.PullScrollView>
+</RelativeLayout>

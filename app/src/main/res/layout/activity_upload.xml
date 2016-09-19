@@ -1,0 +1,35 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+   >
+
+   
+   <include 
+       layout="@layout/activity_title01"
+       />
+
+   <TextView 
+       android:id="@+id/tv_upload"
+       android:layout_width="match_parent"
+       android:layout_height="80px"
+       android:text="上传图片"
+       android:textColor="@color/text_color_01"
+       android:textSize="32px"
+       android:gravity="center"
+       android:layout_margin="20px"
+       android:background="@drawable/half_layout_01"
+       />
+
+   <ImageView
+       android:id="@+id/iv_logo"
+       android:layout_width="250px"
+       android:layout_height="250px"
+       android:src="@drawable/status_null"
+       android:layout_gravity="center"
+       android:layout_marginTop="100px"
+       android:scaleType="centerCrop"
+       />
+
+</LinearLayout>

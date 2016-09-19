@@ -1,0 +1,227 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/title"
+        layout="@layout/activity_title01" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bt_exit"
+        android:layout_below="@+id/title"
+        android:layout_marginTop="20px"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <View style="@style/view_line"></View>
+
+        <RelativeLayout
+            android:id="@+id/rl_head"
+            android:layout_width="match_parent"
+            android:layout_height="180px"
+            android:background="@drawable/selector_press"
+            android:clickable="true">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="24px"
+                android:text="头像:"
+                android:textColor="@color/text_color_black"
+                android:textSize="28px" />
+
+            <com.ugiant.widget.CircleImageView
+                android:layout_width="150px"
+                android:layout_height="150px"
+                android:src="@drawable/qq"
+                android:layout_toLeftOf="@+id/tv_next"
+                android:layout_centerVertical="true"
+                ></com.ugiant.widget.CircleImageView>
+
+
+            <TextView
+                android:id="@+id/tv_next"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="12px"
+                android:layout_marginRight="24px"
+                android:drawablePadding="20px"
+                android:drawableRight="@drawable/ic_expand_more_black"
+                android:gravity="center"
+                android:text=""
+                android:textColor="@color/text_color_black"
+                android:textSize="28px" />
+
+        </RelativeLayout>
+
+        <View style="@style/view_line"></View>
+
+        <RelativeLayout
+            android:id="@+id/rl_nickname"
+            android:layout_width="match_parent"
+            android:layout_height="100px"
+            android:background="@drawable/selector_press"
+            android:clickable="true">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="24px"
+                android:text="昵称:"
+                android:textColor="@color/text_color_black"
+                android:textSize="28px" />
+
+            <TextView
+                android:id="@+id/tv_nickname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="30px"
+                android:layout_marginRight="24px"
+                android:drawablePadding="20px"
+                android:drawableRight="@drawable/ic_expand_more_black"
+                android:gravity="center"
+                android:text="NickName"
+                android:textColor="@color/text_color_black"
+                android:textSize="28px" />
+
+        </RelativeLayout>
+
+        <View style="@style/view_line"></View>
+
+        <RelativeLayout
+            android:id="@+id/rl_gender"
+            android:layout_width="match_parent"
+            android:layout_height="100px"
+            android:background="@drawable/selector_press"
+            android:clickable="true">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="24px"
+                android:text="性别:"
+                android:textColor="@color/text_color_black"
+                android:textSize="28px" />
+
+            <TextView
+                android:id="@+id/tv_gender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="30px"
+                android:layout_marginRight="24px"
+                android:drawablePadding="20px"
+                android:drawableRight="@drawable/ic_expand_more_black"
+                android:gravity="center"
+                android:text="男"
+                android:textColor="@color/text_color_black"
+                android:textSize="28px" />
+
+        </RelativeLayout>
+
+        <View style="@style/view_line"></View>
+
+        <RelativeLayout
+            android:id="@+id/rl_city"
+            android:layout_width="match_parent"
+            android:layout_height="100px"
+            android:background="@drawable/selector_press"
+            android:clickable="true">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="24px"
+                android:text="城市:"
+                android:textColor="@color/text_color_black"
+                android:textSize="28px" />
+
+            <TextView
+                android:id="@+id/tv_city"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="30px"
+                android:layout_marginRight="24px"
+                android:drawablePadding="20px"
+                android:drawableRight="@drawable/ic_expand_more_black"
+                android:gravity="center"
+                android:text="GuangZhou"
+                android:textColor="@color/text_color_black"
+                android:textSize="28px" />
+
+        </RelativeLayout>
+
+        <View style="@style/view_line"></View>
+
+        <View
+            style="@style/view_line"
+            android:layout_marginTop="30px">
+
+        </View>
+
+        <RelativeLayout
+            android:id="@+id/rl_account"
+            android:layout_width="match_parent"
+            android:layout_height="100px"
+            android:background="@drawable/selector_press"
+            android:clickable="true"
+
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="24px"
+                android:text="第三方账号绑定"
+                android:textColor="@color/text_color_black"
+                android:textSize="28px" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="30px"
+                android:layout_marginRight="24px"
+                android:drawablePadding="20px"
+                android:drawableRight="@drawable/ic_expand_more_black"
+                android:gravity="center"
+                android:text="未知"
+                android:textColor="@color/text_color_black"
+                android:textSize="28px" />
+
+        </RelativeLayout>
+
+        <View style="@style/view_line"></View>
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/bt_exit"
+        android:layout_width="match_parent"
+        android:layout_height="80px"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/text_color_reg"
+        android:gravity="center"
+        android:text="退出"
+        android:textColor="@color/white"
+        android:textSize="32px" />
+
+</RelativeLayout>

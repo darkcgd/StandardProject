@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">StandardProject</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_activity__main">Activity_Main</string>
+    <string name="title_activity_activity__my">Activity_My</string>
+    <string name="title_activity_activity__category">Activity_Category</string>
+    <string name="title_activity_standard_demo">标准产品</string>
+    <string name="title_activity_pay">PayActivity</string>
+    <string name="title_activity_login_reg">LoginRegActivity</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_register">RegisterActivity</string>
+    <string name="title_activity_share">ShareActivity</string>
+    <string name="title_activity_scan">ScanActivity</string>
+    <string name="title_activity_upload">UploadActivity</string>
+    <string name="title_activity_suggestion">SuggestionActivity</string>
+    <string name="title_activity_my_data">MyDataActivity</string>
+    <string name="title_activity_advert_list">AdvertListActivity</string>
+    <string name="title_activity_refresh">RefreshActivity</string>
+    <string name="title_activity_prompt">PromptActivity</string>
+    <string name="title_activity_no_data">NoDataActivity</string>
+    <string name="title_activity_help_list">HelpListActivity</string>
+    <string name="title_activity_notice_list">NoticeListActivity</string>
+    <string name="title_activity_about">AboutActivity</string>
+    <string name="title_activity_change_city">ChangeCityActivity</string>
+    <string name="title_activity_wheel_view">WheelViewActivity</string>
+    <string name="title_activity_update_pwd">UpdatePwdActivity</string>
+    <string name="title_activity_update_info">UpdateInfoActivity</string>
+    <string name="title_activity_photo_view">PhotoViewActivity</string>
+    <string name="title_activity_comment">CommentActivity</string>
+    <string name="title_activity_collect">CollectActivity</string>
+    <string name="title_activity_welcome">WelcomeActivity</string>
+    <string name="title_activity_guide">GuideActivity</string>
+    <string name="title_activity_drop_down">DropDownActivity</string>
+    <string name="title_activity_forget_pwd">ForgetPwdActivity</string>
+    <string name="get_code">获取验证码</string>
+</resources>

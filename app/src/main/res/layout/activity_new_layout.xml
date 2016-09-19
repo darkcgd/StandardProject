@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mCoordinatorLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="360px"
+                android:layout_height="100px"
+                android:background="@color/text_color_red"
+                android:visibility="gone">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:hint="请输入"
+                    android:textSize="36px" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <include layout="@layout/title_toolbar"></include>
+
+
+            <TextView
+                android:id="@+id/tv01"
+                android:layout_width="match_parent"
+                android:layout_height="100px"
+                android:layout_margin="8px"
+                android:background="@color/text_color_blue"
+                android:gravity="center_vertical"
+                android:hint="1.snackBar"
+                android:paddingLeft="30px"
+                android:textSize="36px" />
+
+            <TextView
+                android:id="@+id/tv02"
+                android:layout_width="match_parent"
+                android:layout_height="100px"
+                android:layout_margin="8px"
+                android:background="@color/text_color_blue"
+                android:gravity="center_vertical"
+                android:hint="2.FloatingActionButton"
+                android:paddingLeft="30px"
+                android:textSize="36px" />
+
+            <TextView
+                android:id="@+id/tv03"
+                android:layout_width="match_parent"
+                android:layout_height="100px"
+                android:layout_margin="8px"
+                android:background="@color/text_color_blue"
+                android:gravity="center_vertical"
+                android:hint="3.一大波Dialog"
+                android:paddingLeft="30px"
+                android:textSize="36px" />
+
+            <TextView
+                android:id="@+id/tv04"
+                android:layout_width="match_parent"
+                android:layout_height="100px"
+                android:layout_margin="8px"
+                android:background="@color/text_color_blue"
+                android:gravity="center_vertical"
+                android:hint="4.水波纹效果"
+                android:paddingLeft="30px"
+                android:textSize="36px" />
+
+            <TextView
+                android:id="@+id/tv05"
+                android:layout_width="match_parent"
+                android:layout_height="100px"
+                android:layout_margin="8px"
+                android:background="@color/text_color_blue"
+                android:gravity="center_vertical"
+                android:hint="5."
+                android:paddingLeft="30px"
+                android:textSize="36px" />
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="16dp"
+        android:layout_marginBottom="60px"
+        android:layout_marginRight="60px"
+        android:clickable="true"
+        android:src="@drawable/ic_action_new"
+        android:visibility="gone"
+        app:backgroundTint="#30469b"
+        app:borderWidth="0px"
+        app:elevation="12px"
+        app:fabSize="normal"
+        app:layout_anchorGravity="bottom|right|end"
+        app:pressedTranslationZ="14px"
+        app:rippleColor="@color/text_color_blue"
+
+        />
+
+</android.support.design.widget.CoordinatorLayout>

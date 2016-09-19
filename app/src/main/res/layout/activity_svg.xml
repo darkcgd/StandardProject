@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/static_svg"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="30px"
+        android:text="SVG有任意缩放图像而图像仍保持清晰的特点，且在android里SVG是在运行时才进行渲染的，它会根据屏幕的dpi自动缩放到合适的大小，所以我们仅仅用一个SVG文件就可以代替多个不同dpi的drawable了。\nGoogle的推荐是把SVG用于图标(icon)和按钮(Button),
+只有需要的时候才修改Vector的属性(比如alpha,width,height"
+        android:textColor="@color/text_color_black"/>
+</LinearLayout>

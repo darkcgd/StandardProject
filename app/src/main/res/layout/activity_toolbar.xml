@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="只在xml里设置属性，让menu里的按钮显示出来需要在menu.xml里对item设置app:showAsAction"
+        android:gravity="center_horizontal"
+        android:textColor="@color/text_color_black"/>
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/background_home_orange"
+        app:navigationIcon="@drawable/wechat"
+        app:subtitle="子标题是黑色"
+        app:subtitleTextColor="@color/black_bg"
+        app:title="大标题是红色"
+        app:titleTextColor="@color/text_color_red"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_color_blue"
+            android:text="嵌套的自定义控件"/>
+
+    </android.support.v7.widget.Toolbar>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/text_color_black"
+        android:layout_marginTop="20dp"
+        android:gravity="center_horizontal"
+        android:text="在代码里设置"/>
+
+    <android.support.v7.widget.Toolbar
+
+        android:id="@+id/toolbar2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        ></android.support.v7.widget.Toolbar>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/text_color_black"
+        android:layout_marginTop="20dp"
+        android:gravity="center_horizontal"
+        android:visibility="gone"
+        android:text="通过style来改变主题样式"/>
+
+    <!--<android.support.v7.widget.Toolbar
+
+        android:id="@+id/toolbar3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:theme="@style/ToolbarTheme"
+        android:visibility="gone"
+        ></android.support.v7.widget.Toolbar>-->
+
+</LinearLayout>

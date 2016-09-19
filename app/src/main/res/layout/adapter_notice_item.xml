@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+
+    <RelativeLayout 
+        android:layout_width="match_parent"
+        android:layout_height="100px"
+        android:orientation="horizontal"
+        >
+        <TextView 
+            android:id="@+id/tv_context"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:text="context"
+            android:gravity="center"
+            android:textSize="30px"
+            android:paddingLeft="20px"
+            />
+        <TextView 
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@+id/tv_context"
+            android:layout_toLeftOf="@+id/tv_state"
+            android:text="时间"
+            android:gravity="bottom"
+            android:textSize="26px"
+            android:paddingLeft="20px"
+            android:layout_alignParentRight="true"
+            />
+        <TextView 
+            android:id="@+id/tv_state"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:text="状态"
+            android:gravity="center"
+            android:textSize="30px"
+            android:visibility="gone"
+            />
+        
+    </RelativeLayout>
+    <View 
+        style="@style/cutting_line"
+        />
+    
+</LinearLayout>

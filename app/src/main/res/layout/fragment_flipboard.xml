@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/jpg_steward_head"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="16dp"
+                android:text="茫茫人海，滚滚红尘，回眸四望，欣赏是一道绝美的风景，一隅人人渴望、四季相宜、风味独特的景观。学会欣赏，你便懂得享受；学会欣赏，你便拥有快乐；学会欣赏，你便走近幸福；学会欣赏，便成为一个大写的人！
+
+人生需要学会欣赏　　欣赏是一种享受，是一种实实在在的享受。无论何时何地，你学会了欣赏，你便收获快乐，收获温馨。懂得欣赏，你的心情便永远阳光灿烂。
+
+　　欣赏是一种情怀，是一种博大高雅的情怀。没有爱心的人，不懂得欣赏；缺少情趣的人，不知道欣赏。欣赏需要知本。
+
+　赏，就要时刻看到别人的优点，让别人的优点自觉地成为自己的优点。久而久之，你便自然成为一个优秀的人；优秀的人，自然也懂得欣赏。
+
+　"/>
+
+
+        </LinearLayout>
+    </ScrollView>
+    
+
+
+</LinearLayout>

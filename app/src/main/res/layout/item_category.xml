@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+    
+ 
+    
+    <TextView
+        android:id="@+id/tv_category"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:paddingLeft="25dp"
+        android:gravity="center_vertical"
+        android:text="健身"
+        android:textSize="15dp"
+        android:textColor="@color/text_color_reg"
+       />
+    
+    <View
+        android:id="@+id/view1"
+       style="@style/cutting_line" />
+    
+</LinearLayout>

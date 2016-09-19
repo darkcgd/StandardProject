@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+    
+    <RelativeLayout 
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        android:layout_height="112px"       
+       >
+        
+         <Button
+            android:id="@+id/bt_title_left"
+            android:layout_width="100px"
+            android:layout_height="100px"
+            android:layout_marginLeft="20px"            
+            android:layout_centerVertical="true"
+            android:background="@drawable/include_back_selector_white" />
+         
+        
+        
+         
+         <TextView 
+             android:id="@+id/tv_title"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_centerInParent="true"
+             android:text="忘记密码"
+             android:textColor="@color/text_color_white"
+             android:visibility="gone"
+             android:textSize="40px"/>
+    </RelativeLayout>
+
+</LinearLayout>

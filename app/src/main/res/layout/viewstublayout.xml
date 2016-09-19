@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background" >
+    	
+
+   
+    
+     <ImageView 
+        android:id="@+id/iv_pr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_loading_wifi"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="150px"
+        android:layout_centerHorizontal="true"
+        />
+     
+     
+    
+     
+     <TextView 
+         android:id="@+id/tv01"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="加载失败,请检查你当前网络环境!"
+         android:textColor="@color/text_color_01"
+         android:textSize="32px"
+         android:gravity="center"
+         android:layout_below="@+id/iv_pr"
+         android:layout_centerHorizontal="true"
+         android:layout_marginTop="20px"
+         />
+     
+     <TextView 
+         android:id="@+id/tv02"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="你可以点击按钮重新加载!"
+         android:textColor="@color/text_color_01"
+         android:textSize="26px"
+         android:gravity="center"
+         android:layout_centerHorizontal="true"
+         android:layout_below="@+id/tv01"
+         android:layout_marginTop="20px"
+         />
+     
+    <Button 
+        android:id="@+id/bt_show02"
+        android:layout_width="wrap_content"
+        android:layout_height="80px"
+        android:background="@drawable/half_layout_01"
+        android:text="重新加载!"
+        android:textSize="30px"
+        android:textColor="@color/text_color_02"
+        android:gravity="center"
+        android:layout_margin="30px"
+        android:paddingLeft="20px"
+        android:paddingRight="20px"
+        android:layout_gravity="center_horizontal"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/tv02"
+        />
+</RelativeLayout>

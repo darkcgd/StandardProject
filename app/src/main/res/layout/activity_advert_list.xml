@@ -1,0 +1,38 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <include
+        android:id="@+id/title"
+        layout="@layout/activity_title01" />
+
+    <com.ugiant.view.pullview.AbPullToRefreshView
+        android:id="@+id/mPullRefreshView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/title" >
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/grey_backgroud"
+            android:scrollbars="none" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical" >
+
+                <com.ugiant.widget.sliding.AbSlidingPlayView
+                    android:id="@+id/mAbSlidingPlayView"
+                    android:layout_width="fill_parent"
+                    android:layout_height="300px" >
+                </com.ugiant.widget.sliding.AbSlidingPlayView>
+            </LinearLayout>
+        </ScrollView>
+    </com.ugiant.view.pullview.AbPullToRefreshView>
+
+</RelativeLayout>

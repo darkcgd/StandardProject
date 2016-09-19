@@ -1,0 +1,54 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.standardproject.Activity_Main"
+    android:background="@color/background"
+    android:orientation="vertical" >
+
+
+     <include 
+        android:id="@+id/title"
+        layout="@layout/activity_title01"/>
+
+<RelativeLayout 
+    android:id="@+id/rl_demo"
+    android:layout_width="match_parent"
+    android:layout_height="150px"
+    android:orientation="horizontal"
+    android:background="@drawable/selector_press"
+    android:clickable="true"
+    >
+    <ImageView 
+        android:id="@+id/iv_logo"
+        android:layout_width="120px"
+        android:layout_height="120px"
+        android:src="@drawable/ic_logo"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="20px"
+        />
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/iv_logo"
+        >
+         <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="30px"
+        android:textSize="36px"
+        android:text="1.标准开发案例" />
+
+    </RelativeLayout>
+
+</RelativeLayout>
+
+<View 
+    style="@style/cutting_line"
+    />
+</LinearLayout>

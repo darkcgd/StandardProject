@@ -1,0 +1,34 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+   <include 
+       layout="@layout/activity_title01"
+       />
+
+   <TextView 
+       android:id="@+id/tv_login"
+       android:layout_width="match_parent"
+       android:layout_height="80px"
+       android:text="登录"
+       android:textColor="@color/text_color_01"
+       android:textSize="32px"
+       android:gravity="center"
+       android:layout_margin="20px"
+       android:background="@drawable/half_layout_01"
+       />
+   <TextView 
+       android:id="@+id/tv_reg"
+       android:layout_width="match_parent"
+       android:layout_height="80px"
+       android:text="注册"
+       android:textColor="@color/text_color_01"
+       android:textSize="32px"
+       android:gravity="center"
+       android:layout_margin="20px"
+       android:background="@drawable/half_layout_01"
+       />
+</LinearLayout>

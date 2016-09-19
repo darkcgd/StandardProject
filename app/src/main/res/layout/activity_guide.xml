@@ -1,0 +1,33 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.standardproject.common.GuideActivity" >
+
+    <com.ugiant.widget.sliding.AbSlidingPlayView
+        android:id="@+id/mAbSlidingPlayView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+    </com.ugiant.widget.sliding.AbSlidingPlayView>
+    
+    
+    <TextView
+        android:id="@+id/tv_guide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="40px"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/buy_bg_shape_gray"
+        android:paddingBottom="10px"
+        android:paddingLeft="40px"
+        android:paddingRight="40px"
+        android:paddingTop="10px"
+        android:text="开始体验"
+        android:textColor="@color/white"
+        android:textSize="40px"
+        android:visibility="gone"
+        
+      />
+
+</RelativeLayout>

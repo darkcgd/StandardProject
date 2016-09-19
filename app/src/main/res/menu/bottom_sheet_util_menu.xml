@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <!--<item android:id="@+id/tv_back_main_dialog" android:title="返回首页" android:icon="@mipmap/ic_product_home_black_24dp" app:showAsAction="ifRoom"/>
+    <item android:id="@+id/tv_share_dialog" android:title="分享商品" android:icon="@mipmap/ic_share_black_24dp"  app:showAsAction="ifRoom"/>
+
+    <group android:id="@+id/collect">
+        <item android:id="@+id/tv_collect_dialog" android:title="我的收藏" android:icon="@mipmap/ic_star_black_24dp" app:showAsAction="ifRoom"/>
+        <item android:id="@+id/tv_enter_store_dialog" android:title="进入店铺" android:icon="@mipmap/ic_store_black_24dp"/>
+    </group>-->
+
+</menu>

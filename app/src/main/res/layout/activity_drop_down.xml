@@ -1,0 +1,61 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.standardproject.common.DropDownActivity" >
+
+    <include layout="@layout/activity_title01" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80px"
+        android:background="@color/white"
+        android:gravity="center_vertical" >
+
+        <ToggleButton
+            android:id="@+id/tb1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/expand_tab_selector"
+            android:singleLine="true"
+            android:text="商品分类"
+            android:textColor="@color/text_color_reg"
+            android:textOff="@null"
+            android:textOn="@null"
+            android:textSize="26px" />
+
+        <ToggleButton
+            android:id="@+id/tb2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/expand_tab_selector"
+            android:singleLine="true"
+            android:text="区域选择"
+            android:textColor="@color/text_color_reg"
+            android:textOff="@null"
+            android:textOn="@null"
+            android:textSize="26px" />
+
+        <ToggleButton
+            android:id="@+id/tb3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/expand_tab_selector"
+            android:singleLine="true"
+            android:text="综合排序"
+            android:textColor="@color/text_color_reg"
+            android:textOff="@null"
+            android:textOn="@null"
+            android:textSize="26px" />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/view1"
+        style="@style/cutting_line" />
+
+</LinearLayout>

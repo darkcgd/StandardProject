@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rootview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/jpg_beiji_denglu_360dp"
+    android:orientation="vertical" >
+
+    <include layout="@layout/include_title04" />
+
+    <ScrollView
+        android:id="@+id/sv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical" >
+
+                <ImageView
+                    android:id="@+id/cv_user_img"
+                    android:layout_width="240px"
+                    android:layout_height="200px"
+                    android:src="@drawable/ic_logo3" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="幸汇 · 安防云"
+                    android:textColor="@color/text_color_white"
+                    android:textSize="40px" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16px"
+                android:layout_marginRight="16px"
+                android:layout_marginTop="60px"
+                android:background="@drawable/layout_bg_shape_common"
+                android:orientation="vertical" >
+
+                <!-- 手机号码 -->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="97px"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal" >
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30px"
+                        android:src="@drawable/ic_phone_iphone_black" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="40px"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical" >
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" >
+
+                            <com.ugiant.widget.ClearEditText
+                                android:id="@+id/et_phone_number"
+                                android:layout_width="match_parent"
+                                android:layout_height="80px"
+                                android:layout_alignParentLeft="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="25px"
+                                android:layout_toLeftOf="@+id/tv_get_code"
+                                android:background="@null"
+                                android:hint="手机号码"
+                                android:inputType="phone"
+                                android:singleLine="true"
+                                android:textColor="@color/text_color_gray"
+                                android:textColorHint="@color/text_color_gray"
+                                android:textSize="32px" />
+
+                            <!-- 点击获取验证码 -->
+
+                            <TextView
+                                android:id="@+id/tv_get_code"
+                                android:layout_width="200px"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="26px"
+                                android:gravity="center"
+                                android:text="@string/get_code"
+                                android:textColor="@color/text_color_green"
+                                android:textSize="28px"
+                                android:visibility="gone" />
+                        </RelativeLayout>
+
+                        <View
+                            style="@style/view_line"
+                            android:layout_marginRight="20px" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- 验证码 -->
+
+                <LinearLayout
+                    android:id="@+id/ll_code"
+                    android:layout_width="match_parent"
+                    android:layout_height="97px"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:visibility="gone" >
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30px"
+                        android:src="@drawable/ic_messenger_black" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="40px"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical" >
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" >
+
+                            <com.ugiant.widget.ClearEditText
+                                android:id="@+id/et_code"
+                                android:layout_width="match_parent"
+                                android:layout_height="80px"
+                                android:layout_alignParentLeft="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="25px"
+                                android:background="@null"
+                                android:hint="输入验证码"
+                                android:singleLine="true"
+                                android:textColor="@color/text_color_gray"
+                                android:textColorHint="@color/text_color_gray"
+                                android:textSize="32px" />
+                        </RelativeLayout>
+
+                        <View
+                            style="@style/view_line"
+                            android:layout_marginRight="20px" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- 密码 -->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="97px"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal" >
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30px"
+                        android:src="@drawable/ic_lock_outline_black" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="40px"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical" >
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" >
+
+                            <com.ugiant.widget.ClearEditText
+                                android:id="@+id/et_password"
+                                android:layout_width="match_parent"
+                                android:layout_height="80px"
+                                android:layout_alignParentLeft="true"
+                                android:layout_marginRight="20px"
+                                android:layout_toLeftOf="@+id/iv_visibility"
+                                android:background="@null"
+                                android:hint="密码"
+                                android:inputType="textPassword"
+                                android:singleLine="true"
+                                android:textColor="@color/text_color_gray"
+                                android:textColorHint="@color/text_color_gray"
+                                android:textSize="32px" />
+
+                            <ImageView
+                                android:id="@+id/iv_visibility"
+                                android:layout_width="64px"
+                                android:layout_height="64px"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="26px"
+                                android:scaleType="centerInside"
+                                android:src="@drawable/ic_visibility_black" />
+                        </RelativeLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- 登录 -->
+
+            <LinearLayout
+                android:id="@+id/ll_login"
+                android:layout_width="match_parent"
+                android:layout_height="97px"
+                android:layout_marginLeft="16px"
+                android:layout_marginRight="16px"
+                android:layout_marginTop="64px"
+                android:background="@drawable/layout_bg_shape_common"
+                android:gravity="center"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/tv_login"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="登录"
+                    android:textColor="@color/text_color_yellow"
+                    android:textSize="20dp" />
+            </LinearLayout>
+
+            <!-- 注册会员 忘记密码 -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="10px"
+                android:layout_marginRight="10px"
+                android:layout_marginTop="44px"
+                android:gravity="center_vertical"
+                android:orientation="horizontal" >
+
+                <LinearLayout
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical" >
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:id="@+id/tv_regist"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="注册会员"
+                        android:textColor="@color/text_color_black02"
+                        android:textSize="28px" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:id="@+id/tv_forget"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="忘记密码"
+                        android:textColor="@color/text_color_black02"
+                        android:textSize="28px" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_login_with_third"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="100px" >
+
+                    <View
+                        style="@style/view_line_black"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="150px"
+                        android:layout_marginRight="20px"
+                        android:layout_toLeftOf="@+id/tv_use_social" />
+
+                    <TextView
+                        android:id="@+id/tv_use_social"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:text="使用社交账号"
+                        android:textColor="@color/text_color_black02"
+                        android:textSize="28px" />
+
+                    <View
+                        style="@style/view_line_black"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="20px"
+                        android:layout_marginRight="150px"
+                        android:layout_toRightOf="@+id/tv_use_social" />
+                </RelativeLayout>
+
+                <!-- 微信，QQ登录 -->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30px"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:id="@+id/tv_weixin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="100px"
+                        android:drawablePadding="24px"
+                        android:drawableTop="@drawable/ic_wechat_white_48dp"
+                        android:textColor="@color/text_color_white"
+                        android:textSize="30px" />
+
+                    <TextView
+                        android:id="@+id/tv_qq"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="24px"
+                        android:drawableTop="@drawable/ic_qq_white_48dp"
+                        android:textColor="@color/text_color_white"
+                        android:textSize="30px" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

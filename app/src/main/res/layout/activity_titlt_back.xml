@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/background_home_white" >
+
+        <Button
+            android:id="@+id/bt_title_left"
+            android:layout_width="100px"
+            android:layout_height="100px"
+            android:layout_alignParentLeft="true"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/include_back_selector_black"
+            android:gravity="center"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/tv_title_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_toLeftOf="@+id/bt_title_right"
+            android:layout_toRightOf="@+id/bt_title_left"
+            android:gravity="center"
+            android:lines="1"
+            android:ellipsize="end"
+            android:text="Title"
+            android:textSize="18dip" />
+
+        <Button
+            android:id="@+id/bt_title_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/buttonstate_right"
+            android:gravity="center"
+            android:textColor="@color/text_color_black01"
+            android:textSize="15sp" />
+    </RelativeLayout>
+    <View
+        style="@style/view_line"></View>
+
+</LinearLayout>

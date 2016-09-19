@@ -1,0 +1,36 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.standardproject.common.UpdatePwdActivity" 
+    android:orientation="vertical"
+    >
+
+   <include 
+        layout="@layout/activity_title01"
+        />
+   
+   <TextView 
+       android:id="@+id/tv_forget_pwd"
+       android:layout_width="match_parent"
+       android:layout_height="80px"
+       android:text="忘记密码"
+       android:textColor="@color/text_color_01"
+       android:textSize="32px"
+       android:gravity="center"
+       android:layout_margin="20px"
+       android:background="@drawable/half_layout_01"
+       />
+   <TextView 
+       android:id="@+id/tv_update_pwd"
+       android:layout_width="match_parent"
+       android:layout_height="80px"
+       android:text="修改密码"
+       android:textColor="@color/text_color_01"
+       android:textSize="32px"
+       android:gravity="center"
+       android:layout_margin="20px"
+       android:background="@drawable/half_layout_01"
+       />
+
+</LinearLayout>

@@ -1,0 +1,470 @@
+支付
+ 1.微信支付把包名.wxapi 包名复制到新项目的主目录下
+ 2.在config中配置微信支付宝等参数
+ 3.实现PayUtil.IPayUtil接口
+ 4.创建对象PayUtil payUtil=new PayUtil(this);
+ 5.设置监听payUtil.setPayListener(this);
+ 6.payUtil.weixinpay(...)和payUtil.zhifubaoPay(...)启动支付
+ 7.zhifubaoPay的结果回调:::重写handlerPaySucceed(),handlerPayFail(),handlerPayCancel(),handlerPayConfirming()方法处理支付结果
+   weixinpay的结果回调:::使用EventBus,接收结果,处理支付结果
+
+
+AbSnackBarUtil  (对应common.PayActvity.java,,,,coordinator参考activity_pay.xml)
+   无action一般用 AbSnackBarUtil.ShortSnackbar(coordinator,"您取消了支付",AbSnackBarUtil.white,AbSnackBarUtil.black).show();
+   有action一般用 AbSnackBarUtil.ShortSnackbar(coordinator,"您取消了支付",AbSnackBarUtil.white,AbSnackBarUtil.black)
+   				.setActionTextColor(AbSnackBarUtil.green).setAction("取消", new View.OnClickListener() {
+   			@Override
+   			public void onClick(View v) {
+
+   			}
+   		}).show();
+
+
+第三方全局捕捉异常
+    1.手动导入(推荐),参考:https://bugly.qq.com/androidfast
+ 下载Bugly的Android SDK包和NDK动态库,把jar包和so包放进来
+ 然后在Module的buid.gradle文件中添加SO库目录配置：
+
+ android {
+         sourceSets {
+             main.jniLibs.srcDirs = ['libs']
+        }
+ }
+
+   二、参数配置
+
+   在AndroidManifest.xml中添加权限：
+
+   <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+   <uses-permission android:name="android.permission.INTERNET" />
+   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+   <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+   <uses-permission android:name="android.permission.READ_LOGS" />
+   请避免混淆Bugly，在Proguard混淆文件中增加一行配置：
+
+   -dontwarn com.tencent.bugly.**
+   -keep public class com.tencent.bugly.**{*;}
+   三、最简单的初始化
+
+   获取APP ID并将以下代码复制到项目Application类onCreate()中，Bugly会为自动检测环境并完成配置：
+
+   CrashReport.initCrashReport(getApplicationContext(), "注册时申请的APPID", false);
+
+   要是出现Error:(52, 0) NDK integration is deprecated in the current plugin.
+       <a href="http://tools.android.com/tech-docs/new-build-system/gradle-experimental">Consider trying the new experimental plugin</a><br>
+       <a href="useDeprecatedNdk">Set "android.useDeprecatedNdk=true" in gradle.properties to continue using the current NDK integration</a>
+       错误
+   在gradle.properties中添加： android.useDeprecatedNdk=true
+-------------------------------------------------------------------------------------------------------------------------
+关于ShadowLayout：
+github地址：https://github.com/dmytrodanylyk/shadow-layout
+属性有五个
+ <com.dd.ShadowLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:sl_dx="20dp"   x方向上阴影的偏移
+                app:sl_dy="20dp"   y方向上阴影的偏移
+                app:sl_cornerRadius="50dp"    阴影圆角半径
+                app:sl_shadowColor="#90555555"   阴影的颜色
+                app:sl_shadowRadius="4dp"   阴影向外的显示半径，竖直越大，阴影的范围越大
+                >
+
+                <Button
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:background="#ff1976d1"
+                    android:text="阴影色为#aa555555，其格式为透明度+数值相同数字"
+                    android:textColor="@color/white"
+                    android:textSize="24px"/>
+            </com.dd.ShadowLayout>
+
+-----------------------------------------------------------------------------------------------------------------------------
+关于BottomSheet
+1.github: https://github.com/soarcn/BottomSheet
+该控件比较基础，布局为menu布局，满足最基本的需求
+ private BottomSheet bottomSheet;
+ 增加调用grid()方法可将列表布局切换为表格布局
+  bottomSheet = new BottomSheet.Builder(BotttomSheet1Activity.this).icon(R.mipmap.ic_qq_white_48dp).title("更多").sheet(R.menu.product_detail_menu).listener(new DialogInterface.OnClickListener() {
+                     @Override
+                     public void onClick(DialogInterface dialogInterface, int i) {
+                         switch (i){
+                             case R.id.tv_back_main_dialog:
+                                 Toast.makeText(BotttomSheet1Activity.this , "返回首页" , Toast.LENGTH_SHORT).show();
+                                 break;
+                             case R.id.tv_share_dialog:
+                                 Toast.makeText(BotttomSheet1Activity.this , "分享商品" , Toast.LENGTH_SHORT).show();
+                                 break;
+                             case R.id.tv_collect_dialog:
+                                 Toast.makeText(BotttomSheet1Activity.this , "我的收藏" , Toast.LENGTH_SHORT).show();
+                                 break;
+                         }
+                     }
+                 }).show();
+
+                 调用limit()方法可规定显示的行数，（Integer类型）0为全显示，如果设置为不完全显示，它会自动显示“更多”按钮
+                 bottomSheet = BottomSheetHelper.shareAction(this , shareIntent ).limit(R.integer.limit).show();
+
+2.github: https://github.com/Flipboard/bottomsheet
+该控件的可自定义相较于上一个好
+***必须要做的：
+需要我们将使用这个控件的根布局设置为：com.flipboard.bottomsheet.BottomSheetLayout，并给它一个id：
+<com.flipboard.bottomsheet.BottomSheetLayout
+    android:id="@+id/bottomsheet_layout_id"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <Button
+            android:id="@+id/bt_load_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:text="装载fragment"
+            android:gravity="center"/>
+    </LinearLayout>
+</com.flipboard.bottomsheet.BottomSheetLayout>
+
+2.1这个可以装载一个fragment，首先我们自定义一个fragment继承自BottomSheetFragment：
+public class FlipboardFragment extends BottomSheetFragment {
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_flipboard , container , false);
+        return view;
+    }}
+然后即可调用我们的fragment：
+case R.id.bt_load_fragment:
+         new FlipboardFragment().show(getSupportFragmentManager() , R.id.bottomsheet_layout_id);
+        break;
+
+2.2 显示list布局或grid布局：
+三步走：
+第一步.初始化并设置menuType和点击事件：
+                                                                             在这里切换list或grid
+MenuSheetView listMenuView = new MenuSheetView(BottomSheet2Activity.this, MenuSheetView.MenuType.GRID, "", new MenuSheetView.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.tv_back_main_dialog:
+                        Toast.makeText(BottomSheet2Activity.this , "返回首页" , Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.tv_share_dialog:
+                        Toast.makeText(BottomSheet2Activity.this , "分享商品" , Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.tv_collect_dialog:
+                        Toast.makeText(BottomSheet2Activity.this , "我的收藏" , Toast.LENGTH_SHORT).show();
+                        break;
+                }
+                  if (bottomSheetLayout.isSheetShowing()) {
+                       bottomSheetLayout.dismissSheet();
+                       }
+                return true;
+            }
+        });
+第二步.关联布局
+listMenuView.inflateMenu(R.menu.product_detail_menu);
+第三步.显示布局
+bottomSheetLayout.showWithSheetView(listMenuView);
+
+
+-----------------------------------------------------------------------------------------------------------------------------
+关于toolbar:
+<android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/background_home_orange"
+        app:navigationIcon="@drawable/wechat"        导航图标，一般用于返回或是拉开侧滑菜单
+        app:subtitle="子标题是黑色"
+        app:subtitleTextColor="@color/black_bg"
+        app:title="大标题是红色"
+        app:titleTextColor="@color/text_color_red"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_color_blue"
+            android:text="嵌套的自定义控件"/>
+
+    </android.support.v7.widget.Toolbar>
+
+    导航按钮的点击事件
+     toolbar1.setNavigationOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            Toast.makeText(ToolbarActivity.this , "返回按钮或拉出菜单" , Toast.LENGTH_SHORT).show();
+        }
+    });
+
+    关联menu，则会在toolbar的右边自动生成一个三个点的菜单图标
+           toolbar1.inflateMenu(R.menu.product_detail_menu);
+           toolbar1.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+               @Override
+               public boolean onMenuItemClick(MenuItem item) {
+                   switch (item.getItemId()){
+                       case R.id.tv_back_main_dialog:
+                           Toast.makeText(ToolbarActivity.this , "主页" , Toast.LENGTH_SHORT).show();
+                           break;
+                       case R.id.tv_share_dialog:
+                           Toast.makeText(ToolbarActivity.this , "分享" , Toast.LENGTH_SHORT).show();
+                           break;
+                   }
+                   return true;
+               }
+           });
+           R.menu.product_detail_menu，在menu里给图标设置id，以作为上方的点击事件需要的id，添加：app:showAsAction="ifRoom"可将菜单里的图标显示在toolbar上
+           <menu xmlns:android="http://schemas.android.com/apk/res/android"
+               xmlns:app="http://schemas.android.com/apk/res-auto">
+               <item android:id="@+id/tv_back_main_dialog" android:title="返回首页" android:icon="@mipmap/ic_product_home_black_24dp" app:showAsAction="ifRoom"/>
+               <item android:id="@+id/tv_share_dialog" android:title="分享商品" android:icon="@mipmap/ic_share_black_24dp"  app:showAsAction="ifRoom"/>
+               <group android:id="@+id/collect">
+                   <item android:id="@+id/tv_collect_dialog" android:title="我的收藏" android:icon="@mipmap/ic_star_black_24dp" />
+                   <item android:id="@+id/tv_enter_store_dialog" android:title="进入店铺" android:icon="@mipmap/ic_store_black_24dp"/>
+               </group>
+           </menu>
+-----------------------------------------------------------------------------------------------------------------------------
+关于SVG
+优点：
+因为SVG可以任意缩放而图像任保持清晰的特点，且在android里SVG是在运行时才进行渲染的，
+它会根据屏幕的dpi自动缩放到合适的大小，所以我们仅仅用一个SVG文件就可以代替多个不同dpi的drawable了
+注意：
+SVG动画尺寸应该尽可能的小,和简单,因为每次动画都会先把这些path先计算绘成Bitmap,然后上传texture到GPU,
+如果SVG太大意味着生成更大的Bitmap,占更多内存,消耗更多时间.Google的推荐是把SVG用于图标(icon)和按钮(Button),
+只有需要的时候才修改Vector的属性(比如alpha,width,height),因为如果SVG不用于动画,android会把这个图生成一个Cache来节省时间,
+如果SVG动画这个Cache就没有用了。如果要用SVG动画，请确保它“短小精悍”（Short and sweet）。
+
+使用：
+1.将拿到的svg文件转换为可供Android识别的格式，如使用该网站 http://inloop.github.io/svg2android/
+2.在drawable文件夹下新建一个xml文件，将内容复制进去即可
+3.在ImageView里直接使用即可src="@drawable/..."
+
+一个svg文件示例：
+<svg xmlns:svg="http://www.w3.org/2000/svg"
+     xmlns="http://www.w3.org/2000/svg" version="1.0"
+     viewBox="0 0 180 400" width="180px" height="320" preserveAspectRatio="none">
+    <path d="M 180,230 L 0,320 0,0 180,0 z" fill="#000000"/>
+</svg>
+
+转换为android可识别格式后：
+
+static_svg.xml
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="180dp"
+    android:height="320dp"
+    android:viewportWidth="180"
+    android:viewportHeight="400">      viewportWidth和viewportHeight为该画布的大小（等于svg文件里的viewBox），width和height为最终显示的大小
+
+    <path
+        android:name="sharp_rect" （可选项）
+        android:fillColor="#000000"   fillColor为填充颜色（等于svg文件里的fill）
+        android:pathData="M 180,230 L 0,320 0,0 180,0 z"  />  （pathData等于svg文件里的d）
+</vector>
+M表示MoveTo（移动到） L是Line（划线） Z是封闭path
+关于路径参考：http://www.w3school.com.cn/svg/svg_path.asp
+-------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+FloatingActionButton 与 SnackBar使用  （详情请参考标准项目，NewLayoutActivity）
+
+FloatingActionButton 单独使用时，父布局没有特定，
+FloatingActionButton 于SnackBar使用 时， 最外的父布局一定是  android.support.design.widget.CoordinatorLayout （support design包下）
+
+
+  <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="16dp"
+        android:layout_marginBottom="60px"
+        android:layout_marginRight="60px"
+        android:src="@drawable/ic_action_new"       设置图片
+        app:backgroundTint="#30469b"                圆的背景颜色， 注意前面是app 不能直接是backgroud
+        android:clickable="true"                    是否可点击
+        app:borderWidth="0px"                       圆的边框大小
+        app:elevation="12px"                        默认状态下FAB的阴影大小
+        app:fabSize="normal"                        app:fabSize - 设置FAB的大小，该属性有两个值，分别为normal和mini，对应的FAB大小分别为56dp和40dp。
+        app:layout_anchorGravity="bottom|right|end"     这个是配合CoordinatorLayout 使用的，设置FAB相对锚点的位置，值有 bottom、center、right、left、top等。
+        app:pressedTranslationZ="24px"              点击时候FAB的阴影大小
+        app:rippleColor="@color/text_color_blue"
+        android:visibility="visible"
+        />
+
+
+recycleview下拉刷新和上拉加载
+
+ 在activity中使用recycleview的xml布局：
+ <com.standardproject.widget.PulltoRefreshRecyclerView    -- > 内部封装有recycleview的自定义view
+        android:id="@+id/ll_recycle_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+PulltoRefreshRecyclerView封装的布局——start：
+
+  <android.support.v4.widget.SwipeRefreshLayout     -- > 安卓原生下拉刷新组件
+        android:id="@+id/all_swipe"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <android.support.v7.widget.RecyclerView     -- > 安卓原生RecyclerView组件
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical"/>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <FrameLayout                                    -- > 上拉加载时 屏幕底部展示的加载提示view
+        android:id="@+id/ll_load_more"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#6000"
+        android:gravity="center"
+        android:padding="10dp"
+        >
+        <ProgressBar
+            style="@android:style/Widget.ProgressBar"   -- > 上拉加载时  进度条
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginRight="30dp"
+            android:indeterminate="false" />
+
+        <TextView                                      -- > 上拉加载时   提示语
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="30dp"
+            android:text="加载中"/>
+    </FrameLayout>
+    PulltoRefreshRecyclerView封装的布局——end
+
+    PulltoRefreshRecyclerView设置下拉刷新和上拉加载监听：PulltoRefreshRecyclerView.setOnRefreshListener(new PulltoRefreshRecyclerView.onRefreshListener() {
+
+                @Override
+                public void onRefresh(RecyclerView recyclerView) {//下拉刷新
+
+                }
+
+                @Override
+                public void onLoadMore(RecyclerView recyclerView) {//上拉加载
+
+                }
+            });
+
+
+    更新adapter：MyRecycleAdapter.setDatas(list);//adapter中的list已有数据将被新数据直接替换
+                 MyRecycleAdapter.addDates(list);//adapter中的list已有数据将保留，新数据直接加入
+                 MyRecycleAdapter.clearDates;//adapter中的list数据将被全部清空
+
+    item点击事件(均为接口回调形式实现)：
+    MyRecycleAdapter.setOnItemClickListener(OnItemClickListener onItemClickListener )  //设置点击事件
+    MyRecycleAdapter.setonLongItemClickListener(OnLongItemClickListener onLongItemClickListener)  //设置长按点击事件
+
+ 百度lbs工具类
+
+ 百度地图工具类：BaiduMapUtilByRacer
+ 百度地图定位信息实体bean:LocationBean
+
+ 开启百度定位：BaiduMapUtilByRacer.locateByBaiduMap(Context mContext, int time,LocateListener listener)
+ //参数解释：mContext,上下文（activity）
+             time，定位间隔（单位毫秒，低于1000按1000算）
+             listener，定位回调接口，（onLocateSucceed(LocationBean locationBean)；onLocateFiled()；onLocating()三个实现方法）
+ 根据经纬度获取周边热点名：BaiduMapUtilByRacer.getPoisByGeoCode(double lat, double lon,GeoCodePoiListener listener)//维度，精度，回调接口
+ 通過關鍵字及城市名搜索對應地區  city城市名-district區名-locName热点名：BaiduMapUtilByRacer.getSuggestion(String cityName, String keyName,SuggestionsGetListener listener)
+ //参数解释：city城市名，district區名，locName热点名
+
+评论点赞工具类
+CollectAndCommentUtil.doCollectOrComment(String url,AbRequestParams params, final CollectAndCommentCallBack callBack)
+//参数解释：url请求地址，params请求参数，callback回调接口（成功 、失败）
+
+-----------------------------------------------------------------------------------------------------------------
+
+关于极光推送设置定义通知栏样式：
+
+极光推送已经默认提供了基本的样式：但是我们需要设置通知栏的logo
+        BasicPushNotificationBuilder builder = new BasicPushNotificationBuilder(this);
+		builder.statusBarDrawable = R.drawable.ic_launcher;          // 设置通知栏logo
+		builder.notificationFlags = Notification.FLAG_AUTO_CANCEL;  //设置为点击后自动消失
+		builder.notificationDefaults = Notification.DEFAULT_SOUND;  //设置为铃声（ Notification.DEFAULT_SOUND）或者震动（ Notification.DEFAULT_VIBRATE）
+		JPushInterface.setPushNotificationBuilder(1, builder);
+
+
+如果想自己定义通知栏的样式的话：
+
+        CustomPushNotificationBuilder builder = new CustomPushNotificationBuilder(this,R.layout.customer_notitfication_layout,R.id.icon, R.id.title, R.id.text);
+ 		builder.layoutIconDrawable = R.drawable.ic_launcher;
+ 		builder.developerArg0 = "developerArg2";
+ 		JPushInterface.setPushNotificationBuilder(2, builder);
+
+ 		这里的CustomPushNotificationBuilder 第二个参数设置我们的leyout可以这是三种基本的 icon   title  text  （可设置图片，字体，颜色，大小都可以定义）
+ 		如果需要像QQ音乐那种的话需要深度自定义（暂不需要）
+
+
+有一点需要注意的：
+JPushInterface.setPushNotificationBuilder(2, builder); 这里的 第一个参数是样式的编号，极光推送已经默认提供了基本的样式是0，我们自定义的在1-1000里面
+推送的时候，如果自定义了，一定要在推送的时候加上这个编号，不然都是默认的0的样式
+
+ -------------------------------------------------------------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------------------------------
+PullScrollView:
+com.standardproject.Activity_My
+
+   <com.standardproject.widget.PullScrollView
+        android:id="@+id/mScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:headerHeight="600px"
+        app:headerVisibleHeight="200px"
+        android:fillViewport="true">
+
+
+ </com.standardproject.widget.PullScrollView>
+
+
+  这个PullScrollView 是在个人中心的使用的一个可以下来是图片缩放的ScrollView
+   在布局里面使用时 可以设置
+    app:headerHeight="600px"     下拉的高度
+    app:headerVisibleHeight="200px"    图片上移的高度
+
+    记得在代码里面记得加上
+    mScrollView.setHeader(mHeadImg);  // mHeadImg 缩放图片ID
+        mScrollView.setOnTurnListener(this);
+
+	不然下拉的时候会报错
+
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+引导蒙层:参考http://www.apkbus.com/forum.php?mod=viewthread&tid=266511&extra=page%3D4%26filter%3Dsortid%26orderby%3Ddateline%26sortid%3D12
+ 详见com.standardproject.common.GuideMaskActivity(自定义控件:com.standardproject.common.GuideView)
+ GuideView.Builder
+     .newInstance(this)      // 必须调用
+     .setTargetView(view)    // 必须调用，设置需要Guide的View
+     .setCustomTipsView(iv)  // 必须调用，设置GuideView，可以使任意View的实例，比如ImageView 或者TextView
+     .setDirction(GuideView.Direction.LEFT_BOTTOM)   // 设置GuideView 相对于TargetView的位置，有八种，不设置则默认在屏幕左上角,其余的可以显示在右上，右下等等
+     .setShape(GuideView.MyShape.RECTANGULAR)   // 设置显示形状，支持圆形，椭圆，矩形三种样式，矩形可以是圆角矩形，
+     .setBackGround(getResources().getColor(R.color.shadow)) // 设置背景颜色，默认透明
+     .setOnclickExit(null)   // 设置点击消失，可以传入一个Callback，执行被点击后的操作
+     .setRadius(32)          // 设置圆形或矩形透明区域半径，默认是targetView的显示矩形的半径，如果是矩形，这里是设置矩形圆角大小
+     .setCenter(300, 300)    // 设置圆心，默认是targetView的中心
+     .setOffset(200, 60)     // 设置偏移，一般用于微调GuideView的位置
+     .showOnce()             // 设置首次显示，设置后，显示一次后，不再显示
+     .build()                // 必须调用，Buider模式，返回GuideView实例
+     .show();                // 必须调用，显示GuideView
+
+ -----------------------------------------------------------------------------------------------------------------------------
+
+
