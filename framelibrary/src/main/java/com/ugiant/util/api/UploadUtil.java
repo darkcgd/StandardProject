@@ -141,6 +141,10 @@ public class UploadUtil {
 					intentFromGallery.setType("image/*"); // 设置文件类型
 					intentFromGallery.setAction(Intent.ACTION_GET_CONTENT);
 					startActivityForResult(intentFromGallery, IMAGE_REQUEST_CODE);*/
+			path2 = new File(IMGURL);
+			if(!path2.exists()){
+				path2.mkdirs();
+			}
 
 			Intent intent=new Intent(Intent.ACTION_GET_CONTENT);
 			intent.addCategory(Intent.CATEGORY_OPENABLE);
