@@ -1,4 +1,3 @@
-# StandardProject
 package com.sf.community.entity;
 
 import lombok.Data;
@@ -8,53 +7,29 @@ import java.io.Serializable;
 import java.util.Date;
 
 /***
- * 运营位表
+ * 活动表（邀请有礼和抽奖模块）
  */
 @Data
 @Entity
-@Table(name = "tb_operate")
-@org.hibernate.annotations.Table(appliesTo = "tb_operate", comment = "运营位")
-public class Operate implements Serializable {
+@Table(name = "tb_activity")
+@org.hibernate.annotations.Table(appliesTo = "tb_activity", comment = "活动表（邀请有礼和抽奖模块）")
+public class Activity implements Serializable {
 
     @Id
-    @Column(name = "uuid")
+    @Column(name = "uuid", columnDefinition = "varchar(32) COMMENT '唯一uuid'")
     private String uuid;
 
-    @Column(name = "type", columnDefinition = "int(2) COMMENT '运营位类型，0启动广告1轮播图'")
-    private Integer type;
+    @Column(name = "name", nullable = false, columnDefinition = "varchar(255) COMMENT '名称'")
+    private String name;
 
-    @Column(name = "position", columnDefinition = "int(2) COMMENT '投放位置，0APP启动广告 1APP首页轮播图 2任务中心轮播图'")
-    private Integer position;
+    @Column(name = "activity_type", columnDefinition = "int(2) COMMENT '活动类型，2邀请有礼 3抽奖'")
+    private Integer activity_type;
 
-    @Column(name = "specific_position", columnDefinition = "int(2) COMMENT 'bananer投放具体位置，从1开始 1代表第一张轮播图，以此类推，0代表是启动广告'")
-    private Integer specificPosition;
+    @Column(name = "activity_url", nullable = false, columnDefinition = "varchar(255) COMMENT '背景地址'")
+    private String activity_url;
 
-    @Column(name = "title", nullable = false, columnDefinition = "varchar(255) COMMENT '活动名称'")
-    private String title;
-
-    @Column(name = "intro", columnDefinition = "varchar(255) COMMENT '活动描述'")
-    private String intro;
-
-    @Column(name = "logo", columnDefinition = "varchar(255) COMMENT '活动图片'")
-    private String logo;
-
-    @Column(name = "activity_type", columnDefinition = "varchar(255) COMMENT '活动类型，0是图片类型 1是内部url类型 2外部url类型'")
-    private Integer activityType;
-
-    @Column(name = "url", columnDefinition = "varchar(255) COMMENT '和activity_type相对应，对应的URL链接'")
-    private Integer url;
-
-    @Column(name = "activity_id", columnDefinition = "varchar(255) COMMENT '活动id 和activity_type=1相对应，对应的uuid'")
-    private Integer activityId;
-
-    @Column(name = "duration", columnDefinition = "bigint COMMENT '广告或者是轮播间隔时长 单位是毫秒'")
-    private Long duration;
-
-    @Column(name = "is_delete", columnDefinition = "varchar(255) COMMENT '是否删除（看是需要直接物理删除） 0未删除 1已删除'")
-    private Integer isDelete;
-
-    @Column(name = "status", columnDefinition = "varchar(255) COMMENT '状态，0未使用1已使用'")
-    private Integer status;
+    @Column(name = "img_url", nullable = false, columnDefinition = "varchar(255) COMMENT '图标地址'")
+    private String img_url;
 
     @Column(name = "start_time", columnDefinition = "datetime COMMENT '活动开始时间'")
     @Temporal(TemporalType.TIMESTAMP)
@@ -63,6 +38,48 @@ public class Operate implements Serializable {
     @Column(name = "end_time", columnDefinition = "datetime COMMENT '活动结束时间'")
     @Temporal(TemporalType.TIMESTAMP)
     private Date endTime;
+
+    @Column(name = "prize_type", columnDefinition = "int(2) COMMENT '奖品类型 0虚拟商品1实物商品 2积分'")
+    private Integer prize_type;
+
+    @Column(name = "yqyl_rule", nullable = false, columnDefinition = "varchar(255) COMMENT '邀请有礼邀请人H5页面活动规则 邀请有礼专用'")
+    private String yqyl_rule;
+
+    @Column(name = "yqyl_invite_rule", nullable = false, columnDefinition = "varchar(255) COMMENT '邀请有礼受邀人H5页面活动规则 邀请有礼专用'")
+    private String yqyl_invite_rule;
+
+    @Column(name = "new_register_prize_id", nullable = false, columnDefinition = "varchar(255) COMMENT '新用户注册奖品id 邀请有礼专用'")
+    private String new_register_prize_id;
+
+    @Column(name = "invite_prize_id", nullable = false, columnDefinition = "varchar(255) COMMENT '老用户的邀请奖品id 邀请有礼专用'")
+    private String invite_prize_id;
+
+    @Column(name = "new_register_first_order_prize_id", nullable = false, columnDefinition = "varchar(255) COMMENT '新用户首单奖品id 邀请有礼专用'")
+    private String new_register_first_order_prize_id;
+
+    @Column(name = "new_register_first_order_invite_prize_id", nullable = false, columnDefinition = "varchar(255) COMMENT '新用户首单对应的邀请人奖品id 邀请有礼专用'")
+    private String new_register_first_order_invite_prize_id;
+
+    @Column(name = "Xrzcylzccg_prize_id", nullable = false, columnDefinition = "varchar(255) COMMENT '注册有礼注册成功奖品id 注册有礼专用'")
+    private String Xrzcylzccg_prize_id;
+
+    @Column(name = "Xrzcylsd_prize_id", nullable = false, columnDefinition = "varchar(255) COMMENT '注册有礼注册成功首单奖品id 注册有礼专用'")
+    private String Xrzcylsd_prize_id;
+
+    @Column(name = "Xrzcylsdyc_prize_id", nullable = false, columnDefinition = "varchar(255) COMMENT '注册有礼注册成功首单异常奖品id 注册有礼专用'")
+    private String Xrzcylsdyc_prize_id;
+
+    @Column(name = "activity_copywriting", nullable = false, columnDefinition = "varchar(255) COMMENT '活动文案 抽奖专用'")
+    private String activity_copywriting;
+
+    @Column(name = "rule", nullable = false, columnDefinition = "varchar(255) COMMENT '规则'")
+    private String rule;
+
+    @Column(name = "is_delete", columnDefinition = "int(2)  COMMENT '是否删除（看是需要直接物理删除） 0未删除 1已删除'")
+    private Integer isDelete;
+
+    @Column(name = "status", columnDefinition = "int(2)  COMMENT '状态，0未使用1已使用'")
+    private Integer status;
 
     @Column(name = "publish_time", columnDefinition = "datetime COMMENT '发布时间'")
     @Temporal(TemporalType.TIMESTAMP)
